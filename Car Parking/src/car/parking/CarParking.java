@@ -31,8 +31,8 @@ static int check(int arr[],int length){
        garage=new ArrayList <vechile> ();
         while(true){  
             System.out.println("enter a number ");
-            System.out.println("1- add a vechile");
-            System.out.println("2- remove a vechile ");
+            System.out.println("1- add a Vehicle");
+            System.out.println("2- remove a Vehicle ");
             System.out.println("3- print the status  ");
             System.out.println("4- to exit  ");
             int g=input.nextInt();
@@ -75,8 +75,7 @@ static int check(int arr[],int length){
                             spaces[i]=id;
                         }
                         }
-                        
-                        
+                                               
                     }else{
                         System.out.println("there isn't enough space");
                     }
@@ -120,17 +119,20 @@ static int check(int arr[],int length){
             }
             
             if(g==2){
-                System.out.println("Enter Your Car ID");
+                System.out.println("Enter Your Vehicle ID");
                 int ID=input.nextInt();
-                 System.out.println("Enter the current time");
-                int duration2=input.nextInt();
+                boolean flag=false;
                 for(int i=0;i<garage.size();i++){
                      int id2=garage.get(i).id;
                      if(ID==id2){
+                         flag=true;
+                         System.out.println("Enter the current time");
+                           int duration2=input.nextInt();
                          for(int z=0;z<100;z++){
                              if(spaces[z]==ID){
                                  spaces[z]=0;
                              }
+                            
                          }
                         int value1= garage.get(i).calcMoney();
                         int value2=0;
@@ -166,11 +168,14 @@ static int check(int arr[],int length){
                         }
                         
                         garage.remove(i);
-                        System.out.println("The Car removed1");
+                        System.out.println("The Vehicle removed");
                         
-                     }else{
-                         System.out.println("The Car isn't found");
                      }
+                     
+                     
+                }
+                if(!flag){
+                     System.out.println("The Vehicle isn't found");
                 }
                 
             }
